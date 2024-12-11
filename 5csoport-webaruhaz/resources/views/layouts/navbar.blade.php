@@ -12,5 +12,6 @@
     </div>
     <a href="/cart" class="cart">Kosár</a>
 </div>
+@endsection
 
 
