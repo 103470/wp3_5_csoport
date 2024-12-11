@@ -16,7 +16,8 @@
                 </div>
             @endif
             @if(session('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-success">php artisan config:clear
+                php artisan cache:clear
                     {{ session('success') }}
                 </div>
             @endif
@@ -45,11 +46,15 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Jelszó megerősítése: </label>
-                <input type="password" class="form-control" name="cpassword">
+                <input type="password" class="form-control" name="password_confirmation">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Telefonszám: </label>
+                <input type="phone" class="form-control" name="phone">
             </div>
             <div class="mb-3">
                 <label class="form-label">Irányítószám: </label>
-                <input type="text" class="form-control" name="postcode">
+                <input type="text" class="form-control" name="post_code">
             </div>
             <div class="mb-3">
                 <label class="form-label">Település: </label>
@@ -61,7 +66,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Házszám: </label>
-                <input type="text" class="form-control" name="hnumber">
+                <input type="text" class="form-control" name="h_number">
             </div>
             <button type="submit" class="btn btn-primary">Regisztráció</button>
         </form>

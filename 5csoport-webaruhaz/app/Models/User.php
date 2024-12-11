@@ -22,13 +22,16 @@ class User extends Authenticatable
         'last_name',
         'username',
         'email',
-        'postcode',
+        'phone',
+        'post_code',
         'city',
         'street',
-        'hnumber',
+        'h_number',
         'password',
         
     ];
+
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -37,7 +40,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'cpassword',
         'remember_token',
     ];
 
