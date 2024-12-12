@@ -15,4 +15,6 @@ Route::post('/register', [AuthController::class, 'store'])->name('register.store
 Route::get('/login', [AuthController::class, "login"])->name('login');
 Route::post('/login', [AuthController::class, "authenticate"])->name('authenticate');
 
+Route::get('/logout', [AuthController::class, "logout"])->name('logout');
+
 Route::get('/db-test', function () { try { FacadesDB::connection()->getPdo(); return 'Sikeres adatbázis kapcsolat!'; } catch (\Exception $e) { return 'Adatbázis kapcsolat hiba: ' . $e->getMessage(); } });

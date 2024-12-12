@@ -7,6 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     @yield('style')
 </head>
+@include('includes.header')
+@include('includes.footer')
 <body>
 @yield('navbar')
 @yield('content')
