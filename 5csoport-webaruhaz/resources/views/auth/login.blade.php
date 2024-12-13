@@ -36,6 +36,9 @@
                 <label class="form-check-label" for="remember">Emlékezz rám</label>
             </div>
             <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+            <div class="mb-3">
+                <a href="/register">Még nincs fiókja? Regisztráljon most!</a>
+            </div>
         </form>
     </div>
 @endsection

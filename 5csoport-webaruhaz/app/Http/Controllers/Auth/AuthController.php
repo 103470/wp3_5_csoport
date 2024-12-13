@@ -74,7 +74,7 @@ class AuthController extends Controller
                 return redirect()->route('admin/home');
             }
          
-        return redirect()->route('dashboard');
+        return redirect()->route('/home');
     
         }
     }   

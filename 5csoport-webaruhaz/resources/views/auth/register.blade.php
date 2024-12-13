@@ -1,5 +1,7 @@
 @extends('layouts.layout')
+
 @section('title', 'Regisztráció')
+
 @section('content')
     <div class="container">
         <div class="mt-5">
@@ -25,7 +27,7 @@
         <form action="{{route('register.store')}}" method="POST" class="ms-auto me-auto mt-auto">
             @csrf
             <div class="mb-3">
-                <label class="form-label">Vezetéknév: </label>
+                <label class="form-label" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vezetéknév: </label>
                 <input type="text" class="form-control" name="first_name">
             </div>
             <div class="mb-3">
@@ -69,5 +71,9 @@
                 <input type="text" class="form-control" name="h_number">
             </div>
             <button type="submit" class="btn btn-primary">Regisztráció</button>
+            <div class="mb-3">
+                <a href="/login">Már van fiókja? Jelentkezzen be!</a>
+            </div>
         </form>
     </div>
+@endsection
