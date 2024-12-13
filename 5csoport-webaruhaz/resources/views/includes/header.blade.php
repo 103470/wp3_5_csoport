@@ -32,12 +32,12 @@
           </li>
           @auth
           <li class="nav-item">
-            <a class="nav-link" href="{{route("logout")}}">Kijelentkezés</a>
+            <a class="nav-link" href="{{ route("logout") }}">Kijelentkezés</a>
           </li> 
           @endauth
         </ul>
         <span class="navbar-text">
-            Minőség, ami nem ismer kompromisszumot. balázs cigány
+            @yield('header_content')
         </span>
       </div>
     </div>
