@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -61,20 +62,30 @@ class AuthController extends Controller
     }
 
     function authenticate(Request $request){
-        $request->validate([
+        $credentials = $request->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($request->only('username', 'password'), $request->remember)) {
-            return redirect()->intended('dashboard')->with('success', 'Sikeres bejelentkezés!');
-        }
-
-        return back()->with('error', 'Hibás felhasználónév vagy jelszó.');
+        if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
+            $request->session()->regenerate(); 
     
-    }
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('admin/home');
+            }
+         
+        return redirect()->route('dashboard');
+    
+        }
+    }   
 
     function index(){
         return view('index');
+    }
+
+    function logout(){
+        Auth::logout();
+
+        return view('auth.login');
     }
 }
