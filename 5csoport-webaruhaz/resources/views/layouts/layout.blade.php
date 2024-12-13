@@ -7,11 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     @yield('style')
 </head>
-@include('includes.header')
-@include('includes.footer')
 <body>
-@yield('navbar')
+@include('includes.header')
 @yield('content')
+@include('includes.footer')
 <script scr="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.bundle.min.js"></script>
 </body>
 </html>

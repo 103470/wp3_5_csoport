@@ -50,7 +50,7 @@ class AuthController extends Controller
             });
             
             return redirect(route("login"))
-                >with("success", "Regisztráció sikeres!");
+                ->with("success", "Regisztráció sikeres!");
         
         } 
         catch (\Exception $e) {
