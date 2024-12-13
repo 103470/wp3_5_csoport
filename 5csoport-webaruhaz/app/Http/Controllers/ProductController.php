@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
+use function Illuminate\Log\log;
 
 class ProductController extends Controller
 {
@@ -37,18 +40,14 @@ class ProductController extends Controller
 
         $file = $request->file('image');
         $filePath = $file->store('uploads','public');
-        dd('Elérte a dd() hívást, fájl útvonal: ' . $filePath);
+        
 
-        DB::transaction(function () use ($request, $filePath) {
-            $product = new Product();
-            $product->name = $request->name;
-            $product->description = $request->description;
-            $product->ar = $request->price;
-            $product->image = '/storage/' .$filePath;
-            $product->save();
-            dd($product);
-            dd('siker');
-        });
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'image' => '/storage/' . $filePath, 
+        ]);
  
         return redirect()->route('admin/products')->with('success', 'Termék sikeresen hozzáadva');
     }

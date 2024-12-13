@@ -1,11 +1,10 @@
 @extends('layouts.app')
  
-@section('title', 'Termékek)
-@endsection
+@section('title', 'Termékek')
  
 @section('contents')
 <div>
-    <h1 class="font-bold text-2xl ml-3">Home Product List</h1>
+    <h1 class="font-bold text-2xl ml-3">Termékek listája</h1>
     <a href="{{ route('admin/products/create') }}" class="text-white float-right bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add Product</a>
     <hr />
     @if(Session::has('success'))
@@ -22,6 +21,7 @@
                 <th scope="col" class="px-6 py-3">Ár</th>
                 <th scope="col" class="px-6 py-3">Kép</th>
                 <th scope="col" class="px-6 py-3">Létrehozás dátuma</th>
+                <th scope="col" class="px-6 py-3">Szerkesztés dátuma</th>
                 <th scope="col" class="px-6 py-3">Action</th>
             </tr>
         </thead>
@@ -43,6 +43,9 @@
                 </td>
                 <td>
                     {{ $rs->created_at}}
+                </td>
+                <td>
+                    {{ $rs->updated_at}}
                 </td>
                 <td class="w-36">
                     <div class="h-14 pt-5">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
  
-@section('title', 'Termékek')
+@section('title', 'Termékleírás')
  
 @section('contents')
 <h1 class="font-bold text-2xl ml-3">Termékleírás</h1>
@@ -35,6 +35,12 @@
             <label class="block text-sm font-medium leading-6 text-gray-900">Létrehozás dátuma</label>
             <div class="mt-2">
                 {{ $product->created_at }}
+            </div>
+        </div>
+        <div class="sm:col-span-4">
+            <label class="block text-sm font-medium leading-6 text-gray-900">Szerkesztés dátuma</label>
+            <div class="mt-2">
+                {{ $product->updated_at }}
             </div>
         </div>
         </form>

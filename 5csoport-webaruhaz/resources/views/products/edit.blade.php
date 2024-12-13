@@ -1,9 +1,9 @@
 @extends('layouts.app')
  
-@section('title', 'Edit Product')
+@section('title', 'Termék frissítés')
  
 @section('contents')
-<h1 class="mb-0">Edit Product</h1>
+<h1 class="mb-0">Termék frissítése</h1>
 <hr />
 <div class="border-b border-gray-900/10 pb-12">
     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -37,7 +37,7 @@
                     </textarea>
                 </div>
             </div>
-            <button type="submit" class="flex w-full justify-center mt-10 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
+            <button type="submit" class="flex w-full justify-center mt-10 rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Szerkesztés</button>
         </form>
     </div>
 </div>
