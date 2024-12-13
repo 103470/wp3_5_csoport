@@ -76,4 +76,8 @@ class AuthController extends Controller
         return redirect()->route('dashboard');
     
     }
+
+    function index(){
+        return view('index');
+    }
 }
