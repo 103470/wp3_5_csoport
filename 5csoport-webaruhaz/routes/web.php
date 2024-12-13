@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JarmuvekManager;
 use App\Http\Controllers\ProductController;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Container\Attributes\DB;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB as FacadesDB;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AuthController::class, 'index']);
+Route::get('/', [JarmuvekManager::class, "index"]) -> name("home");
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('register.store');

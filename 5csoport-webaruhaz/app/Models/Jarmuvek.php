@@ -9,5 +9,18 @@ class Jarmuvek extends Model
 {
     use HasFactory;
     protected $table = "Jarmuvek";
+
+    protected $fillable = [
+        'id',
+        'gyarto',
+        'tipus',
+        'motor',
+        'uzemanyag',
+        'hajtas',
+        'karosszeria',
+        'ajtokSzama',
+        'ar',
+        'kep',
+    ];
 }
 
