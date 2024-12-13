@@ -24,6 +24,10 @@ class UserAccess
 
     public function handle(Request $request, Closure $next, string $userType)
     {
+        if (!Auth::check()) {
+            return response()->json(['error' => 'You must be logged in to access this page.'], 401);
+        } 
+        
         if (Auth::user()->role == $userType) {
             return $next($request);
         }

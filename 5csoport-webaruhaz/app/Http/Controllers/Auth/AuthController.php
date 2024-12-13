@@ -62,22 +62,30 @@ class AuthController extends Controller
     }
 
     function authenticate(Request $request){
-        Validator::make($request->all(), [
+        $credentials = $request->validate([
             'username' => 'required',
-            'password' => 'required'
-        ])->validate();
+            'password' => 'required',
+        ]);
 
-        if(Auth::user()->role == 'admin') {
-            return redirect()->route('admin/home');
-        } else {
-            return redirect()->route('home');
-        }
+        if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
+            $request->session()->regenerate(); 
+    
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('admin/home');
+            }
          
         return redirect()->route('dashboard');
     
-    }
+        }
+    }   
 
     function index(){
         return view('index');
+    }
+
+    function logout(){
+        Auth::logout();
+
+        return view('auth.login');
     }
 }
