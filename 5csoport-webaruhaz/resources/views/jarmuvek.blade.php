@@ -7,20 +7,17 @@
                 @foreach ($jarmuvek as $jarmu)
                 <div class="col-lg-6">
                     <center>
-                        <img src={{$jarmu->kep}} style="height:150px;width:300px;" alt="">
-
-                    <div>
-                        <p>
-                            {{$jarmu->id}}
-                            {{$jarmu->gyarto}}
-                            {{$jarmu->tipus}}
-                            {{$jarmu->motor}}
-                            {{$jarmu->uzemanyag}}
-                            {{$jarmu->hajtas}}
-                            {{$jarmu->karosszeria}}
-                            {{$jarmu->ajtokSzama}}
-                            {{$jarmu->ar}}
-                        </p> 
+                        <a href="car?id={{$jarmu->id}}" target="blank">
+                            <img src={{$jarmu->kep}} style="height:150px;width:300px;" alt="">
+                        </a>
+                        <div>
+                            <p>
+                             {{$jarmu->gyarto}}
+                             {{$jarmu->tipus}}
+                            </p> 
+                            <div>
+                             {{$jarmu->ar}}  Ft
+                        </div>
                     </div>
                     </center>
                     

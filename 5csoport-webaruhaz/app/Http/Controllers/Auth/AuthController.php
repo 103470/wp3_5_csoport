@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -62,18 +61,16 @@ class AuthController extends Controller
     }
 
     function authenticate(Request $request){
-        Validator::make($request->all(), [
+        $request->validate([
             'username' => 'required',
-            'password' => 'required'
-        ])->validate();
+            'password' => 'required',
+        ]);
 
-        if(Auth::user()->role == 'admin') {
-            return redirect()->route('admin/home');
-        } else {
-            return redirect()->route('home');
+        if (Auth::attempt($request->only('username', 'password'), $request->remember)) {
+            return redirect()->intended('dashboard')->with('success', 'Sikeres bejelentkezés!');
         }
-         
-        return redirect()->route('dashboard');
+
+        return back()->with('error', 'Hibás felhasználónév vagy jelszó.');
     
     }
 

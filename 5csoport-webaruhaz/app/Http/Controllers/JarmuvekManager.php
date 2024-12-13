@@ -12,4 +12,10 @@ class JarmuvekManager extends Controller
         $jarmuvek = Jarmuvek::all();
         return view('jarmuvek', compact('jarmuvek'));
     }
+
+    function id(Request $request)
+    {
+        $id1 = $request->route('id');
+        return view('car', compact('id1'));
+    }
 }
